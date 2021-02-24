@@ -5,7 +5,7 @@ import com.aks4125.currencyconverter.data.CurrencyRates
 import com.aks4125.currencyconverter.data.CurrencyTypes
 import retrofit2.http.GET
 
-interface ApiInterface{
+interface ApiInterface {
     @GET("/api/list?access_key=${BuildConfig.API_ACCESS_KEY}&format=1")
     suspend fun getCurrencyTypes(): CurrencyTypes
 

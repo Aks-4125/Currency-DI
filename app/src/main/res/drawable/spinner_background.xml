@@ -16,7 +16,6 @@
             </item>
             <item android:right="5dp">
                 <bitmap android:gravity="center_horizontal|right" android:src="@android:drawable/arrow_down_float" android:tint="@color/colorAccent">
-                    <padding android:right="5dp" />
                 </bitmap>
             </item>
         </layer-list>

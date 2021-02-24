@@ -31,6 +31,7 @@ class DataRepositoryTest : BaseTest() {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     //Inject api service created with koin
+    @Suppress("unused")
     val dao: RoomDao by inject()
 
     @MockK

@@ -1,4 +1,4 @@
-package com.aks4125.currencyconverter.model
+package com.aks4125.currencyconverter.di
 
 import okhttp3.mockwebserver.MockWebServer
 import org.koin.dsl.module

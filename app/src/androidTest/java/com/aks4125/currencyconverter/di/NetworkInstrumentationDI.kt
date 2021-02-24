@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * Retrofit Koin DI component for Instrumentation Testing
  */
+@Suppress("unused")
 fun configureNetworkForInstrumentationTest(baseTestApi: String) = module {
 
     single(override = true) {

@@ -42,13 +42,13 @@ abstract class BaseUITest : KoinTest {
     /**
      * Reads input file and converts to json
      */
-    fun getJson(path: String): String {
-        var content: String = ""
+    private fun getJson(path: String): String {
+        var content: String
         val testContext = InstrumentationRegistry.getInstrumentation().targetContext
         val inputStream = testContext.assets.open(path)
         val reader = BufferedReader(inputStream.reader() as Reader?)
-        reader.use { reader ->
-            content = reader.readText()
+        reader.use { r ->
+            content = r.readText()
         }
         return content
     }
@@ -62,11 +62,6 @@ abstract class BaseUITest : KoinTest {
         mMockServerInstance.start()
 
     }
-
-    /**
-     * Set Mockwebserver url
-     */
-    fun getMockWebServerUrl() = mMockServerInstance.url("/").toString()
 
     /**
      * Stop Mockwebserver
@@ -102,7 +97,7 @@ abstract class BaseUITest : KoinTest {
                 val viewHolder = view.findViewHolderForAdapterPosition(position)
                     ?: return false
                 val targetView = viewHolder.itemView.findViewById<View>(targetViewId)
-                val text = (targetView as TextView).text
+                (targetView as TextView).text
                 return itemMatcher.matches(targetView)
             }
         }

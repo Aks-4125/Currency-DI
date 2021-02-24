@@ -3,7 +3,6 @@ package com.aks4125.currencyconverter.di
 import com.aks4125.currencyconverter.data.repository.dataRepositoryModule
 import com.aks4125.currencyconverter.data.repository.mainRepositoryModule
 import com.aks4125.currencyconverter.data.room.roomDbModule
-import com.aks4125.currencyconverter.model.MockWebServerDIPTest
 
 /**
  * Main Koin DI component.

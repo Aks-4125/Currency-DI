@@ -35,7 +35,7 @@ data class CurrencyModel(
     fun getCurrencyList(): MutableList<String> {
         val rtKeys: MutableList<String> = mutableListOf()
         for (info in data) {
-            val nameKey = "(${info.code}) ${info.name}"
+            val nameKey = "[${info.code}] ${info.name}"
             rtKeys.add(nameKey)
         }
         return rtKeys

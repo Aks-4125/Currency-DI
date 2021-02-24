@@ -9,8 +9,8 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.aks4125.currencyconverter.di.MockWebServerInstrumentationTest
-import com.aks4125.currencyconverter.ui.CurrencyAdapter
-import com.aks4125.currencyconverter.ui.MainActivity
+import com.aks4125.currencyconverter.ui.main.CurrencyAdapter
+import com.aks4125.currencyconverter.ui.main.MainActivity
 import okhttp3.mockwebserver.MockWebServer
 import org.hamcrest.CoreMatchers.containsString
 import org.junit.Assert
@@ -22,13 +22,15 @@ import org.koin.core.context.loadKoinModules
 import org.koin.test.inject
 import java.net.HttpURLConnection
 
+
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest : BaseUITest() {
     @Rule
     @JvmField
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    //Inject Mockwebserver created with koin so that View will have corresponding dependencies while executing.
+    //Inject MockWebServer created with koin so that View will have corresponding dependencies while executing.
+    @Suppress("unused")
     val mMockWebServer: MockWebServer by inject()
 
     @Rule
@@ -38,12 +40,12 @@ class MainActivityTest : BaseUITest() {
 //    @JvmField
 //    val activityScenarioRule = activityScenarioRule<MainActivity>()
 
-
     @Before
     fun start() {
         super.setUp()
         loadKoinModules(MockWebServerInstrumentationTest)
     }
+
 
     @Test
     fun test_recyclerview_elements_for_expected_response() {
@@ -59,7 +61,7 @@ class MainActivityTest : BaseUITest() {
         // wait for mock WebServer response
         SystemClock.sleep(1000)
 
-        onView(withId(R.id.currency_menu)).check(matches(withSpinnerText(containsString("USD"))));
+        onView(withId(R.id.currency_menu)).check(matches(withSpinnerText(containsString("USD"))))
 
         onView(recyclerView)
             .check(matches(recyclerItemAtPosition(0, withText("AED"), R.id.txtCurrencyCode)))

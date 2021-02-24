@@ -8,10 +8,7 @@ import com.aks4125.currencyconverter.data.CurrencyDetail
 import com.aks4125.currencyconverter.data.CurrencyModel
 import com.aks4125.currencyconverter.data.repository.DataRepository
 import com.aks4125.currencyconverter.data.repository.MainRepository
-import com.aks4125.currencyconverter.ui.TAG
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.aks4125.currencyconverter.ui.main.TAG
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import org.koin.dsl.module
@@ -60,10 +57,8 @@ class MainViewModel(
                     val currencyTypes = mainRepository.getAllTypes()
                     val mRates = mainRepository.getCurrencyRates()
                     for (typeKey in currencyTypes.currencies.keys.toList()) {
-                        // full key = source type code + target type code
+
                         val fullKey = "${mRates.source}${typeKey}"
-                        // Before create and add any CurrencyInfo object,
-                        // will check if we can find the key in the map of the rates
                         if (mRates.quotes.containsKey(fullKey)) {
                             mData.data.add(
                                 CurrencyDetail(

@@ -17,7 +17,10 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import org.junit.*
+import org.junit.After
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.context.startKoin
 import org.koin.test.inject
@@ -31,6 +34,8 @@ class MainViewModelTest : BaseTest() {
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
     private lateinit var mainViewModel: MainViewModel
+
+    @Suppress("unused")
     private val mAPIService: ApiInterface by inject()
 
     @MockK
