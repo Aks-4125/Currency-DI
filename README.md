@@ -1,4 +1,4 @@
-# Currency-DI using Koin DI
+# Currency-DI
 
 
 <table>
